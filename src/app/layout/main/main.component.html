@@ -1,0 +1,8 @@
+<div class="main">
+    <app-navbar layout="user"></app-navbar>
+<router-outlet></router-outlet>
+<app-footer></app-footer>
+@if (showBtn) {
+<button  (click)="goToTop()" class="upBtn btn size-10 rounded-xl text-xl "><i class="fa-solid fa-angle-up"></i></button>
+}
+</div>

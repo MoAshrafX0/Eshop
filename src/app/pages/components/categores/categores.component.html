@@ -1,0 +1,16 @@
+<div class="container px-4 w-3/4 mt-20 z-auto">
+    <h2 class="py-11 my-5 text-center font-semibold text-4xl">All <span class="text-blue-500">Categore</span></h2>
+    <div class=" text-center  grid grid-cols-5 ">
+        @for  (Categore of categore; track $index) {
+            <div class="p-2 ">
+                <div class="card-img  overflow-hidden    ">
+                 <img [src]="Categore.image"  class=" h-[250px]  object-contain ">
+                </div>
+                <div class="cardcontant ">
+                 <h4 class="py-5 font-bold text-2xl"> {{Categore.name}}</h4>
+                </div>
+             </div>
+            
+        }
+    </div>
+    </div>

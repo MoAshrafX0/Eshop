@@ -1,1 +1,24 @@
-/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
+body{
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar{
+    width: 5px;
+    
+}
+::-webkit-scrollbar:hover{
+    width: 15px;
+}
+::-webkit-scrollbar-thumb{
+    background-color: rgb(50, 50, 253);
+    border-radius: 20px;
+}
+::-webkit-scrollbar-track{
+background-color: rgb(218, 214, 214);
+}

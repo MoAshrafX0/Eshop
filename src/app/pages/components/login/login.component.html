@@ -1,0 +1,79 @@
+<div class="container w-3/4 mx-auto py-10  ">
+    <h2 class="text-blue-500 text-center mt-9 text-4xl font-semibold font-mono my-10 border-b-2 opacity-55 py-6">Login Now :</h2>
+    <div class="grid md:grid-cols-2 justify-center md:justify-between content-center   ">
+        <div class="img m-auto" data-aos="fade-right" data-aos-duration="3000">
+            <img src="Payment Information-rafiki.svg" alt="" class="w-full mx-auto md:block  hidden">
+        </div>
+        <div data-aos="fade-left" data-aos-duration="3000" class="py-2">
+
+
+            <form  [formGroup]="loginForm" re (ngSubmit)="login()" class="max-w-md p-20 shadow-2xl rounded-2xl bg-gray-100">
+
+
+                
+                <div class="relative z-0 w-full mb-5 group">
+                    
+                    <input type="email" formControlName="email" name="floating_email" id="floating_email"
+                        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                        placeholder=" " required />
+                    <label for="floating_email"
+                        class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email
+                        address</label>
+
+                </div>
+                @if (loginForm.get('email')?.touched) {
+                @if (loginForm.get('email')?.hasError('required')) {
+                <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+                    role="alert">
+                    <span class="font-medium">Danger alert!</span> Email is required
+                </div>
+                }@else if (loginForm.get('email')?.hasError('email')) {
+                <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+                    role="alert">
+                    <span class="font-medium">Danger alert!</span> Entar valid Email
+                </div>
+                }
+                }
+                <div class="relative z-0 w-full mb-5 group">
+                    <input type="password" formControlName="password" name="floating_password" id="floating_password"
+                        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                        placeholder=" " required />
+                    <label for="floating_password"
+                        class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Password</label>
+                </div>
+                @if (loginForm.get('password')?.touched) {
+                @if (loginForm.get('password')?.hasError('required')) {
+                <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+                    role="alert">
+                    <span class="font-medium">Danger alert!</span> password is required
+                </div>
+                }@else if (loginForm.get('password')?.hasError('pattern')) {
+                <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+                    role="alert">
+                    <span class="font-medium">Danger alert!</span> Password is invaild
+                </div>
+                }
+                }
+                <div class="flex justify-between mt-10">
+                    <button type="submit" [disabled]="loginForm.invalid" [class.bg-gray-300]="loginForm.invalid"
+                    class="text-white bg-blue-700  font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+
+                    @if(isLoading){
+                    Submit
+                    }@else {
+                    <i class="fa-solid fa-spinner fa-spin fa-1x mr-3" style="color: #63E6BE;"> </i>Loading...
+
+                    }
+
+                </button>
+                <a  routerLink="/restpassword" class="text-blue-600">Forget Password!</a>
+                </div>
+                
+
+              
+        
+            </form>
+         
+        </div>
+    </div>
+</div>
