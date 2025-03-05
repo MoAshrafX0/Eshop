@@ -13,12 +13,11 @@ import { CartsComponent } from './pages/components/carts/carts.component';
 import { NotfoundComponent } from './pages/components/notfound/notfound.component';
 import { authGuard } from './core/gurdes/auth.guard';
 import { logGuard } from './core/gurdes/log.guard';
-import { DetilesComponent } from './features/detiles/detiles.component';
 
 export const routes: Routes = [
 
     // default path
-    // {path:'',redirectTo:'main',pathMatch:'full'},
+    {path:'',redirectTo:'home',pathMatch:'full'},
     //    ================ ** auth layout ** ===========
     {
         path: '', component: AuthComponent,
@@ -26,8 +25,7 @@ export const routes: Routes = [
         children: [
             {
                 path: 'login',
-                loadComponent: () => import('./pages/components/login/login.component')
-                    .then((c) => c.LoginComponent),
+               component:LoginComponent,
                 title: 'Login'
             },
             {

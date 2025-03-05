@@ -3,6 +3,7 @@ import { Router, RouterLink, RouterLinkActive,  } from '@angular/router';
 import { CartService } from '../../shared/services/cart/cart.service';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { TranslationService } from '../../core/interceptors/translate/translate.service';
+import { DarkThemeSelectorService } from '../../core/services/Folwbit/darkmode/darkmode.service';
 
 @Component({
   selector: 'app-navbar',
@@ -11,11 +12,13 @@ templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss'
 })
 export class NavbarComponent {
+  theme=localStorage.getItem('theme')
  @Input() layout!:string
  constructor(private readonly router:Router,
   private readonly cartService:CartService,
   private readonly trans:TranslationService,
-  private translate: TranslateService
+  private translate: TranslateService,
+  protected darkThemeSelectorService: DarkThemeSelectorService
  ){
   translate.setDefaultLang('en');
 
