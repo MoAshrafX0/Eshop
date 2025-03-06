@@ -31,12 +31,10 @@ export class LoginComponent {
         this.isLoading = false
         this.auth.login(this.loginForm.value).subscribe({
           next: (res) => {
-            console.log(res);
             this.isLoading = true
             if (res.message == 'success') {
               localStorage.setItem('token',res.token)
              this.userData=this.auth.getUserData(res.token)
-             console.log(this.userData);
              
               this.router.navigate(['/home'])
               return res.token 

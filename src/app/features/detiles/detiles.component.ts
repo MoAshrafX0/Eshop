@@ -46,7 +46,6 @@ export class DetilesComponent {
 
     this.cartService.addCart(data).subscribe({
       next: (res) => {
-        console.log(this.cartService.count);
         this.cartService.count.next(res.numOfCartItems);
         
       }

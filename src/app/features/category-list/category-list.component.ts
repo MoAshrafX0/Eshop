@@ -51,7 +51,7 @@ export class CategoryListComponent {
    ngOnInit():void{
       this.categoresService.getAllProducts().subscribe({
         next:(res)=>{
-            console.log(res);
+         
             
             this.categore=res.data
   

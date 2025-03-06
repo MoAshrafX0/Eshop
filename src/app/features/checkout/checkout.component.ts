@@ -18,6 +18,7 @@ export class CheckoutComponent {
   private readonly router:Router) {
 
   }
+  user:string=''
   cancelSubscription:Subscription=new Subscription()
   id!: string;
   ngOnInit() {
@@ -40,14 +41,14 @@ this.id=this.route.snapshot.params['id']
       const data = {
         shippingAddress: this.orderForm.value
       }
-      console.log(type);
         if (type == 'cach') {
         
           // cash order
           this.checkoutService.cashPayment(this.id, data).subscribe({
             next: (res) => {
-              this.router.navigate(['/allorders',res.user._id])
-              console.log(res);
+              this.user=res.data.user
+              
+              this.router.navigate([`/allorders/${this.user}`])
             this.isLoding = false
           },
           
@@ -57,7 +58,6 @@ this.id=this.route.snapshot.params['id']
         this.checkoutService.onlinePayment(this.id, data).subscribe({
           next: (res) => {
             open(res.session.url,'_self')
-            console.log(res);
             this.isLoding = false
           },
           

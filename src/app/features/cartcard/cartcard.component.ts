@@ -20,7 +20,7 @@ ngOnInit(): void{
 getCart(){
   this.cartService.getCart().subscribe({
     next:(res)=>{
-      console.log(res) ;
+    
       this.cart=res
 
       

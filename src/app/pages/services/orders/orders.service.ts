@@ -10,7 +10,7 @@ export class OrdersService {
 
   constructor(private readonly http:HttpClient) { 
   }
-  getAllOrders():Observable<any>{
-    return this.http.get(environment.baseUrl+'orders/')
+  getAllOrders(id:string):Observable<any>{
+    return this.http.get(environment.baseUrl+`orders/user/${id}`)
   }
 }

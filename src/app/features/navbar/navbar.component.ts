@@ -29,7 +29,6 @@ export class NavbarComponent {
     this.cartService.count.next(res.numOfCartItems)
   })
   this.cartService.count.subscribe((value)=>{
-    console.log(value);
     this.count=value
     
   })

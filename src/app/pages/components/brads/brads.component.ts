@@ -16,7 +16,6 @@ export class BradsComponent {
   getBrands() {
     this.brands.getAllBrands().subscribe({
       next: (res) => {
-        console.log(res);
         this.brand = res.data
 
       }

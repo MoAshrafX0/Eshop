@@ -38,7 +38,6 @@ export class CartsComponent {
         this.cart = res
         this.cartService.count.next(res.numOfCartItems)
         this.toastr.success(res.message,res.status);
-        console.log(res);
         
 
       }, 
@@ -50,7 +49,6 @@ export class CartsComponent {
     const data ={
       count:count.toString()
     }
-    console.log(data);
     
     this.cartService.updateCart(id, data).subscribe({
       

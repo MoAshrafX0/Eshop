@@ -53,7 +53,6 @@ export class RegisterComponent {
       this.isLoading = false
       this.authService.register(this.registerForm.value).subscribe({
         next: (res) => {
-          console.log(res);
           this.isLoading = true
           if (res.message == 'success') {
             this.router.navigate(['/login'])

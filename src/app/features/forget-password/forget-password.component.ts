@@ -35,7 +35,6 @@ export class ForgetPasswordComponent {
       this.isLoading = false
       this.restService.forgetPassword(this.restForm.value).subscribe({
         next: (res) => {
-          console.log(res);
           this.isLoading = true
           this.step = 1;
         },
@@ -48,13 +47,11 @@ export class ForgetPasswordComponent {
 
   }
   rest2() {
-    console.log(this.verfaiyForm.value);
 
     if (this.verfaiyForm.valid) {
       this.isLoading = false
       this.restService.resetCode(this.verfaiyForm.value).subscribe({
         next: (res) => {
-          console.log(res);
           this.isLoading = true
           this.step = 2;
           this.newPasswordForm.get('email')?.patchValue(this.restForm.get('email')?.value)
@@ -66,13 +63,11 @@ export class ForgetPasswordComponent {
     }
   }
   rest3() {
-    console.log(this.newPasswordForm.value);
     
     if (this.newPasswordForm.valid) {
       this.isLoading = false
       this.restService.updatePassword(this.newPasswordForm.value).subscribe({
         next: (res) => {
-          console.log(res);
           this.isLoading = true,
           this.router.navigate(['/home'])
 

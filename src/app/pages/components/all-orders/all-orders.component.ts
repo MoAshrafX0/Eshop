@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { OrdersService } from '../../services/orders/orders.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-all-orders',
@@ -8,19 +9,22 @@ import { OrdersService } from '../../services/orders/orders.service';
   styleUrl: './all-orders.component.scss'
 })
 export class AllOrdersComponent {
-  constructor(private readonly orders:OrdersService){
-    this.order()
-  }
-  ordersList:any[]=[];
-  order(){
-    this.orders.getAllOrders().subscribe({
-      next:(res)=>{
-        console.log(res);
-        
-        this.ordersList=res
-      },
-      
+  orders:any=[]
+  
+  constructor(private readonly allOrders:OrdersService,
+    private readonly route: ActivatedRoute
+  ){}
+  id!: string;
+  ngOnInit() {
+this.id=this.route.snapshot.params['id']
 
+  }
+  getAllOrders(){
+    this.allOrders.getAllOrders(this.id).subscribe({
+      next:(res)=>{
+        this.orders=res
+      }
     })
-}
-}
+  }
+  }
+

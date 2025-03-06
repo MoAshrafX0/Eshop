@@ -88,6 +88,11 @@ export const routes: Routes = [
                 path: 'allorders/:id', loadComponent: () => import('./pages/components/all-orders/all-orders.component')
                     .then((c) => c.AllOrdersComponent),
                 title: 'AllOrders'
+            },
+            {
+                path: 'allorders', loadComponent: () => import('./pages/components/all-orders/all-orders.component')
+                    .then((c) => c.AllOrdersComponent),
+                title: 'AllOrders'
             }
         ]
     },
