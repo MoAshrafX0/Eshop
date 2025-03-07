@@ -29,7 +29,7 @@
           
           <li>
             <a href="#" routerLinkActive="active" routerLink="/home"
-              class="block py-2 px-3 text-black rounded-sm md:bg-transparent  md:p-0 md:dark:text-blue-500"
+              class="block py-2 px-3 text-black dark:text-white rounded-sm md:bg-transparent  md:p-0 md:dark:text-blue-500"
               aria-current="page">{{'Home'|translate}}</a>
           </li>
           <li>
@@ -50,10 +50,16 @@
           </li>
        
         </ul>
-         <ul class="flex">
-          <div class="px-4">
+         <ul class="flex -3 items-center">
+          <div class="px-4 flex justify-between gap-3">
           <button  class="px-3 font-semibold" (click)="changeLang('en')">En</button>
           <button  class="font-semibold" (click)="changeLang('ar')">Ar</button>
+  
+         <div class="bg-slate-400 flex gap-3 px-3 rounded-xl">
+          <button  (click)="darkThemeSelectorService.setDarkTheme()" class="dark:text-white "><i class="fa-solid  fa-moon"></i></button>
+          <button  (click)="darkThemeSelectorService.setLightTheme()" class="dark:text-white"><i class="fa-solid text-yellow-500 fa-sun"></i></button>
+          <button  (click)="darkThemeSelectorService.setSystemTheme()" class="dark:text-white"><i class="fa-solid fa-desktop"></i></button>
+         </div>
         </div>
           <li>
             <a routerLink="/carts" routerLinkActive="active"
@@ -75,29 +81,26 @@
 
           </ul>
 
-          <div class="flex gap-2 px-3">
-            <button (click)="darkThemeSelectorService.setDarkTheme()" class="dark:text-white "><i class="fa-solid  fa-moon"></i></button>
-            <button (click)="darkThemeSelectorService.setLightTheme()" class="dark:text-white"><i class="fa-solid text-yellow-500 fa-sun"></i></button>
-            <button (click)="darkThemeSelectorService.setSystemTheme()" class="dark:text-white"><i class="fa-solid fa-desktop"></i></button>
-          </div>
-        
+          
+         
+     
           }
           @else if(layout=="auth") {
          
           <ul
           id="navbar-sticky"
-            class="flex flex-col justify-end grow p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg  md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0   dark:border-gray-700">
-            <div class="flex justify-between">
-            <div class="flex gap-4 justify-end">
-              <button (click)="darkThemeSelectorService.setDarkTheme()" class="dark:text-white"><i class="fa-solid fa-moon"></i></button>
-              <button (click)="darkThemeSelectorService.setLightTheme()" class="dark:text-white"><i class="fa-solid text-yellow-400 fa-sun"></i></button>
-              <button (click)="darkThemeSelectorService.setSystemTheme()" class="dark:text-white"><i class="fa-solid fa-desktop"></i></button>
-            </div>
-            <div >
+            class="flex flex-col  justify-end grow p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg  md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0   dark:border-gray-700">
+           
+              <div class="px-4 flex justify-end gap-3">
               <button  class="px-3 font-semibold" (click)="changeLang('en')">En</button>
               <button  class="font-semibold" (click)="changeLang('ar')">Ar</button>
+      
+             <div class="bg-slate-400 flex gap-3 px-3 rounded-xl">
+              <button  (click)="darkThemeSelectorService.setDarkTheme()" class="dark:text-white "><i class="fa-solid  fa-moon"></i></button>
+              <button  (click)="darkThemeSelectorService.setLightTheme()" class="dark:text-white"><i class="fa-solid text-yellow-500 fa-sun"></i></button>
+              <button  (click)="darkThemeSelectorService.setSystemTheme()" class="dark:text-white"><i class="fa-solid fa-desktop"></i></button>
+             </div>
             </div>
-          </div>
             <li>
               <a routerLinkActive="active" routerLink="/register"
                 class="block py-2 px-3 text-blac rounded-sm md:bg-transparent  md:p-0 "
