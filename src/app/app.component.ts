@@ -4,6 +4,7 @@ import * as AOS from 'aos';
 
 import { NgxSpinnerModule } from "ngx-spinner";
 import { FlowbitService } from './core/services/Folwbit/flowbit.service';
+import { initFlowbite } from 'flowbite';
 
 
 
@@ -21,7 +22,8 @@ constructor(private readonly flowbitService:FlowbitService){}
   title = 'E-Commerce';
   ngOnInit() {
     this.flowbitService.loadFlowbite(flowbite => {
-      // Your custom code here
+     initFlowbite()
+
       console.log('Flowbite loaded', flowbite);
     });
     AOS.init();
